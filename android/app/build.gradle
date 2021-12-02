@@ -170,6 +170,13 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+    packagingOptions {
+        // Make sure libjsc.so does not packed in APK
+        exclude "**/libjsc.so"
+         // Reduce size by deleting the debugger/inspector
+        exclude '**/libhermes-inspector.so'
+        exclude '**/libhermes-executor-debug.so'
+    }
 
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
