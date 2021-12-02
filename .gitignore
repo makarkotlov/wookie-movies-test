@@ -20,6 +20,7 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+project.xcworkspace
 
 # Android/IntelliJ
 #
@@ -29,6 +30,11 @@ build/
 local.properties
 *.iml
 *.hprof
+*.apk
+
+# Emulators
+#
+*.log
 
 # node.js
 #
@@ -37,8 +43,10 @@ npm-debug.log
 yarn-error.log
 
 # BUCK
+#
 buck-out/
 \.buckd/
+android/app/libs
 *.keystore
 !debug.keystore
 
@@ -55,6 +63,15 @@ buck-out/
 
 # Bundle artifact
 *.jsbundle
+
+# IDE
+#
+\.vscode/
+jsconfig.json
+
+# Jest
+#
+coverage
 
 # CocoaPods
 /ios/Pods/
