@@ -12,6 +12,8 @@ target 'wookieMovies' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+
   target 'wookieMoviesTests' do
     inherit! :complete
     # Pods for testing

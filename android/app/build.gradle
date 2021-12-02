@@ -82,6 +82,14 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
+project.ext.envConfigFiles = [
+    releasestaging: ".env.staging",
+    releasedebug: ".env.production",
+    release: ".env.production",
+    anycustombuildlowercase: ".env",
+]
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -136,6 +144,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        resValue "string", "build_config_package", "com.wookiemovies"
     }
     splits {
         abi {
@@ -155,6 +164,7 @@ android {
     }
     buildTypes {
         debug {
+            applicationIdSuffix ".debug"
             signingConfig signingConfigs.debug
             if (nativeArchitectures) {
                 ndk {
@@ -168,6 +178,19 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+        releaseStaging {
+            applicationIdSuffix ".staging"
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.debug
+            matchingFallbacks = ['release', 'debug']
+        }
+        releaseDebug {
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.debug
+            matchingFallbacks = ['release', 'debug']
         }
     }
     packagingOptions {
