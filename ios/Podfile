@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '11.0'
 
-target 'wookieMovies' do
+target 'wookiemovies' do
   config = use_native_modules!
 
   use_react_native!(
@@ -12,9 +12,7 @@ target 'wookieMovies' do
     :hermes_enabled => false
   )
 
-  pod 'react-native-config', :path => '../node_modules/react-native-config'
-
-  target 'wookieMoviesTests' do
+  target 'wookiemoviesTests' do
     inherit! :complete
     # Pods for testing
   end
