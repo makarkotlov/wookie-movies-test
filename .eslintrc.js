@@ -7,14 +7,12 @@ module.exports = {
 
   parser: '@typescript-eslint/parser',
 
-  rules: {
-    /*
-     * interface foo {
-     *   bar: number,
-     * }
-     */
-    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+  globals: {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    NodeJS: true,
+  },
 
+  rules: {
     /*
      * class Foo {
      *   static bar;
@@ -326,11 +324,6 @@ module.exports = {
      */
     'react/prop-types': ['off'],
 
-    /*
-     * const { foo } = this.props;
-     */
-    'react/destructuring-assignment': ['warn', 'always'],
-
     'react/no-array-index-key': ['warn'],
 
     'react/no-children-prop': ['warn'],
@@ -391,8 +384,6 @@ module.exports = {
      * />
      */
     'react/jsx-first-prop-new-line': ['warn', 'multiline'],
-
-    'react/jsx-fragments': ['warn', 'syntax'],
 
     'react/jsx-indent': [
       'warn',
