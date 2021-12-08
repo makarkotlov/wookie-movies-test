@@ -15,9 +15,9 @@
                   <BuildableReference
                      BuildableIdentifier = "primary"
                      BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-                     BuildableName = "wookieMovies.app"
-                     BlueprintName = "wookieMovies"
-                     ReferencedContainer = "container:wookieMovies.xcodeproj">
+                     BuildableName = "wookiemovies.app"
+                     BlueprintName = "wookiemovies"
+                     ReferencedContainer = "container:wookiemovies.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
             </ActionContent>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "wookieMovies.app"
-               BlueprintName = "wookieMovies"
-               ReferencedContainer = "container:wookieMovies.xcodeproj">
+               BuildableName = "wookiemovies.app"
+               BlueprintName = "wookiemovies"
+               ReferencedContainer = "container:wookiemovies.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -51,15 +51,15 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "wookieMoviesTests.xctest"
-               BlueprintName = "wookieMoviesTests"
-               ReferencedContainer = "container:wookieMovies.xcodeproj">
+               BuildableName = "wookiemoviesTests.xctest"
+               BlueprintName = "wookiemoviesTests"
+               ReferencedContainer = "container:wookiemovies.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -73,9 +73,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "wookieMovies.app"
-            BlueprintName = "wookieMovies"
-            ReferencedContainer = "container:wookieMovies.xcodeproj">
+            BuildableName = "wookiemovies.app"
+            BlueprintName = "wookiemovies"
+            ReferencedContainer = "container:wookiemovies.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -90,9 +90,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "wookieMovies.app"
-            BlueprintName = "wookieMovies"
-            ReferencedContainer = "container:wookieMovies.xcodeproj">
+            BuildableName = "wookiemovies.app"
+            BlueprintName = "wookiemovies"
+            ReferencedContainer = "container:wookiemovies.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
