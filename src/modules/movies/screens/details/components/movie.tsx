@@ -1,20 +1,19 @@
 import React, { memo } from 'react'
 import { Button } from 'components'
-import { Image, View, ImageSourcePropType, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import FastImage, { Source } from 'react-native-fast-image'
 
-export const Movie = memo<Movie.Props>(({ cover, ...props }) => {
-  return (
-    <Button {...props}>
-      <View style={styles.container}>
-        <Image source={cover} style={styles.image} />
-      </View>
-    </Button>
-  )
-})
+export const Movie = memo<Movie.Props>(({ cover, ...props }) => (
+  <Button {...props}>
+    <View style={styles.container}>
+      <FastImage style={styles.image} source={cover} />
+    </View>
+  </Button>
+))
 
 export namespace Movie {
   export interface Props extends Button.Props {
-    cover: ImageSourcePropType
+    cover: Source
   }
 }
 
