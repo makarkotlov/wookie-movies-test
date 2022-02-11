@@ -194,7 +194,9 @@ android {
         }
     }
     packagingOptions {
-         // Reduce size by deleting the debugger/inspector
+        // Make sure libjsc.so does not packed in APK
+        exclude "**/libjsc.so"
+        // Reduce bundle size by deleting hermes
         exclude '**/libhermes-inspector.so'
         exclude '**/libhermes-executor-debug.so'
     }
@@ -221,7 +223,10 @@ dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    // Add v8-android - prebuilt libv8android.so into APK
+    implementation 'org.chromium:v8-android:+'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
