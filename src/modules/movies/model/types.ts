@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
+// FIXME: get rid of enums
 export enum Genre {
   War = 'War',
   Crime = 'Crime',

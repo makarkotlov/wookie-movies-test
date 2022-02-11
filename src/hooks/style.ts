@@ -5,6 +5,7 @@ function compileStyle<T>(style: T) {
   return StyleSheet.create({ style }).style
 }
 
+// FIXME: types
 export const useStyle = <T>(provider: () => T, dependencies?: DependencyList) =>
   useMemo(() => compileStyle<T>(provider()), dependencies)
 

@@ -15,10 +15,10 @@ class Application extends PureComponent {
     }
   }
 
-  private initialize() {
+  private get initialize() {
     const { initialize } = this.constructor as typeof Application
 
-    return initialize()
+    return initialize
   }
 
   componentDidMount() {

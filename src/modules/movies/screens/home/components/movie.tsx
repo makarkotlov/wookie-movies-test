@@ -1,7 +1,8 @@
-import { Button } from 'components'
 import React, { memo } from 'react'
 import { View, StyleSheet } from 'react-native'
 import FastImage, { Source } from 'react-native-fast-image'
+
+import { Button } from 'components'
 
 export const Movie = memo<Movie.Props>(({ cover, ...props }) => (
   <Button {...props} testID="Movie">
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
     minHeight: 150,
   },
   image: {
-    resizeMode: 'contain',
     flex: 1,
+    resizeMode: 'contain',
   },
 })

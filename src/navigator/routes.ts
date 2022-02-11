@@ -1,3 +1,4 @@
+// FIXME: get rid of enums
 export enum Routes {
   Home = 'Home',
   Splash = 'Splash',

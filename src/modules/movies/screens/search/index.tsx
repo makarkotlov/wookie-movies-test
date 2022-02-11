@@ -29,7 +29,7 @@ class Search extends PureComponent<Search.Props> {
     return _debounceTime
   }
 
-  private onPress = (id: string) => () => {
+  private onPress = (id: string) => {
     const { navigate } = this.props.navigation
 
     navigate(Routes.Details, { id })
@@ -47,9 +47,17 @@ class Search extends PureComponent<Search.Props> {
     }, this.debounceTime)
   }
 
-  private renderMovie = ({ cover: uri, id, title, yearShort }: Movie, i: number) => (
-    <MovieBlock year={yearShort} title={title} key={i} onPress={this.onPress(id)} cover={{ uri }} />
+  private renderMovie = ({ cover: uri, id, title, yearShort }: Movie) => (
+    <MovieBlock
+      key={id}
+      payload={id}
+      title={title}
+      cover={{ uri }}
+      year={yearShort}
+      onPress={this.onPress}
+    />
   )
+
 
   private renderContent() {
     const { movies, foundMovies } = MoviesStore
@@ -72,7 +80,9 @@ class Search extends PureComponent<Search.Props> {
         <ScrollView showsVerticalScrollIndicator={false}>
           <Container>
             <List separator={Spacer}>
-              {flicks.length ? flicks.map(this.renderMovie) : <Label title="No movies found" fontSize={20} />}
+              {flicks.length
+                ? flicks.map(this.renderMovie)
+                : <Label title="No movies found" fontSize={20} />}
             </List>
             <Spacer size="sex" />
           </Container>
@@ -99,10 +109,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   searchInput: {
+    borderWidth: 1,
+    borderRadius: Radius.sm,
     paddingVertical: Padding.double,
     paddingHorizontal: Padding.triple,
-    borderRadius: Radius.sm,
-    borderWidth: 1,
   },
 })
 

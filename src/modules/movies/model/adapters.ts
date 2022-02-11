@@ -3,8 +3,8 @@ import { camelizeKeys } from 'humps'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import { Movie } from './movie'
-import { Genre, Movie as IMovie, MovieCamelized } from './types'
 import { getFulfilled } from '../utils'
+import { Genre, Movie as IMovie, MovieCamelized } from './types'
 
 export type MoviesGroupedByGenre = {
   [key in Genre]: Movie[]
@@ -62,9 +62,7 @@ export async function makeMovie(props: IMovie): Promise<Movie> {
 export async function makeMovies(movies: IMovie[] = []): Promise<Movie[]> {
   const promises = await Promise.allSettled(movies.map(makeMovie))
 
-  const lol = getFulfilled(promises)
+  return getFulfilled(promises)
     .filter(({ value }) => value instanceof Movie)
     .map(({ value }) => value)
-
-  return lol
 }

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import React, { memo } from 'react'
+// FIXME: type
 import Star from 'react-native-star-view'
 import { HeaderBackButton } from '@react-navigation/elements'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
+import { computed, makeObservable } from 'mobx'
 import { StackScreenProps } from '@react-navigation/stack'
 import { StyleSheet, ScrollView, StatusBar } from 'react-native'
 
@@ -9,13 +10,12 @@ import { Container, Label, List, RowContainer, Spacer } from 'components'
 import { Routes } from 'navigator/routes'
 import MoviesStore from 'modules/movies/model'
 import { HomeStackParamList } from 'navigator/stacks/home/types'
-import { computed, makeObservable } from 'mobx'
 
 class Details extends Component<Details.Props> {
   constructor(props: Details.Props) {
     super(props)
 
-    makeObservable<Details, 'movie'>(this, {
+    makeObservable<this, 'movie'>(this, {
       movie: computed,
     })
   }
@@ -32,7 +32,15 @@ class Details extends Component<Details.Props> {
 
     const header = `${title} (${classification})`
 
-    return <MovieDetailsHeader onBack={goBack} title={header} backdrop={backdrop} cover={cover} rating={rating} />
+    return (
+      <MovieDetailsHeader
+        cover={cover}
+        title={header}
+        onBack={goBack}
+        rating={rating}
+        backdrop={backdrop}
+      />
+    )
   }
 
   private renderMainInfo = () => {
@@ -52,13 +60,17 @@ class Details extends Component<Details.Props> {
   private renderCast = () => {
     const { cast } = this.movie!
 
-    return <Label title={`Cast: ${cast}`} fontSize={16} />
+    const title = `Cast: ${cast}`
+
+    return <Label title={title} fontSize={16} />
   }
 
   private renderDescription = () => {
     const { description } = this.movie!
 
-    return <Label title={`Movie description: ${description}`} fontSize={16} />
+    const title = `Movie description: ${description}`
+
+    return <Label title={title} fontSize={16} />
   }
 
   private onBookmark = () => {
@@ -76,8 +88,11 @@ class Details extends Component<Details.Props> {
       return null
     }
 
+    const testId = `DetailsScreen-${this.movie.title}`
+    const title = this.movie.bookmarked ? 'Delete bookmark' : 'Bookmark'
+
     return (
-      <ScrollView showsVerticalScrollIndicator={false} testID={`DetailsScreen-${this.movie.title}`}>
+      <ScrollView showsVerticalScrollIndicator={false} testID={testId}>
         {this.renderHeader()}
         <Container>
           <Spacer size="triple" />
@@ -87,10 +102,7 @@ class Details extends Component<Details.Props> {
             {this.renderDescription()}
           </List>
           <Spacer size="triple" />
-          <BookmarkButton
-            title={this.movie.bookmarked ? 'Delete bookmark' : 'Bookmark'}
-            onPress={this.onBookmark}
-          />
+          <BookmarkButton title={title} onPress={this.onBookmark} />
           <Spacer size="triple" />
         </Container>
       </ScrollView>

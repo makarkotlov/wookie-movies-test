@@ -30,14 +30,19 @@ class Home extends Component<Home.Props> {
     return _title
   }
 
-  private onPress = (id: string) => () => {
+  private onPress = (id: string) => {
     const { navigate } = this.props.navigation
 
     navigate(Routes.Details, { id })
   }
 
-  private renderMovie = ({ cover: uri, id }: Movie, i: number) => (
-    <MovieComponent key={i} onPress={this.onPress(id)} cover={{ uri }} />
+  private renderMovie = ({ cover: uri, id }: Movie) => (
+    <MovieComponent
+      key={id}
+      payload={id}
+      cover={{ uri }}
+      onPress={this.onPress}
+    />
   )
 
   private renderRow(title: string, movies: Movie[], key: number | string) {
@@ -52,9 +57,9 @@ class Home extends Component<Home.Props> {
         </Container>
         <Spacer size="double" />
         <ScrollView
+          horizontal={true}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
-          horizontal
           contentContainerStyle={styles.scrollView}
         >
           <List separator={Spacer}>

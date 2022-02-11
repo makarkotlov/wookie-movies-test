@@ -29,12 +29,14 @@ const defaultScreenOptions: BottomTabNavigationOptions = {
 const tabSettings: Record<Routes, BottomTabNavigationOptions> = {
   [Routes.HomeTab]: {
     tabBarLabel: 'Home',
+    // FIXME: types
     tabBarIcon: (props: BottomTabNavigationOptions['tabBarIcon']) => <TabBarIcon iconName="house" {...props} />,
     tabBarTestID: 'HomeTabButton',
     ...defaultScreenOptions,
   },
   [Routes.SearchTab]: {
     tabBarLabel: 'Search',
+    // FIXME: types
     tabBarIcon: (props: BottomTabNavigationOptions['tabBarIcon']) => <TabBarIcon iconName="search" {...props} />,
     tabBarTestID: 'SearchTabButton',
     ...defaultScreenOptions,
@@ -44,7 +46,7 @@ const tabSettings: Record<Routes, BottomTabNavigationOptions> = {
 const Tab = createBottomTabNavigator<TabNavigatorParamList>()
 
 const TabNavigator = () => (
-  // eslint-disable-next-line react/jsx-no-bind
+  // FIXME: JSX props should not use arrow functions
   <Tab.Navigator screenOptions={({ route }) => tabSettings[route.name]}>
     <Tab.Screen name={Routes.HomeTab}>
       {() => (
